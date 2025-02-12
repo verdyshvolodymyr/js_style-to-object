@@ -10,20 +10,20 @@ function convertToObject(sourceString) {
   const cssProperty = sourceString.split(';');
   const cssPropertyTrim = [];
 
-  for (let i = 0; i < cssProperty.length; i++) {
-    cssPropertyTrim.push(cssProperty[i].trim());
-  }
+  cssProperty.map((item) => {
+    return cssPropertyTrim.push(item.trim());
+  });
 
-  for (let i = 0; i < cssPropertyTrim.length; i++) {
-    const proretry = cssPropertyTrim[i].split(':');
+  cssPropertyTrim.map((item) => {
+    const property = item.split(':');
 
-    if (proretry.length > 1) {
-      const key = proretry[0].trim();
-      const value = proretry[1].trim();
+    if (property.length > 1) {
+      const key = property[0].trim();
+      const value = property[1].trim();
 
       propertyCss[key] = value;
     }
-  }
+  });
 
   return propertyCss;
 }
